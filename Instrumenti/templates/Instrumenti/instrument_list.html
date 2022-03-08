@@ -31,7 +31,7 @@
                 <p class="card-text">{{instrument.opis}}.</p>
                 <h1 class="card-title pricing-card-title">${{instrument.cena}}<small class="text-muted fw-light"></small></h1>
                 <a href="/Instrumenti/update_instrument/{{instrument.id}}" class="btn btn-primary">Ažuriraj oglas</a>
-                <a href="/Instrumenti/update_instrument/{{instrument.id}}" class="btn btn-danger">Obriši oglas</a>
+                <a href="/Instrumenti/delete_instrument/{{instrument.id}}" class="btn btn-danger">Obriši oglas</a>
                 </div>
             </div>
         {% endfor %}
