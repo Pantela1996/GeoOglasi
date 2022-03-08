@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import TemplateView,ListView,CreateView,UpdateView,DeleteView
 from .models import Instrument
+from .forms import InstrumentForm
 
 # Create your views here.
 class HomeView(TemplateView):
@@ -14,12 +15,16 @@ class InstrumentiListView(ListView):
 
 class DodajOglas(CreateView):
     model = Instrument
-    fields = "__all__"
+    form_class = InstrumentForm
+    # fields = "__all__"
+    template_name = 'Instrumenti/instrument_form.html'
     success_url = reverse_lazy('Instrumenti:oglasi')
 
 class AzurirajOglas(UpdateView):
     model = Instrument
-    fields = "__all__"
+    form_class = InstrumentForm
+    # fields = "__all__"
+    template_name = 'Instrumenti/instrument_form.html'
     success_url = reverse_lazy('Instrumenti:oglasi')
 
 class ObrisiOglas(DeleteView):
