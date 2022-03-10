@@ -6,6 +6,8 @@ class Instrument(models.Model):
     model = models.CharField(max_length=30)
     opis = models.CharField(max_length=30)
     cena = models.CharField(max_length=30)
+    kontakt = models.CharField(max_length=30)
+    mesto = models.CharField(max_length=30)
 
     def __str__(self):
         return f"{self.marka} {self.model}"
