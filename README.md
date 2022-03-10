@@ -11,5 +11,5 @@
 ## Django app dedicated for posting surveying adds for Balkan
 
 1. Free to use
-2. Open source code
+2. OpenSource code
 3. All suggestions are welcome
