@@ -11,3 +11,13 @@ class Instrument(models.Model):
 
     def __str__(self):
         return f"{self.marka} {self.model}"
+
+class Nalozi(models.Model):
+    ime = models.CharField(max_length=30)
+    prezime = models.CharField(max_length=30)
+    email = models.CharField(max_length=30)
+    brtel = models.CharField(max_length=30)
+    lozinka = models.CharField(max_length=30)
+
+    def __str__(self):
+        return f"{self.ime} {self.prezime}"
