@@ -22,23 +22,29 @@
                                 <h2>Dobrodosli na GeoOglase!</h2>
                                 <p>Mesto gde možete ostaviti svoj ili pogledati druge geodetske oglase! ;)</p>
                                 <ul>
-                                    <li><a href="#" class="facebook"><i class="fa fa-facebook-f"></i><span>facebook</span></a></li>
-                                    <li><a href="#" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a></li>
+                                    <!-- <li><a href="#" class="facebook"><i class="fa fa-facebook-f"></i><span>facebook</span></a></li>
+                                    <li><a href="#" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a></li> -->
                                 </ul>
                             </div>
                             <div class="form-input">
                                 <h2>Ulogujte se</h2>
-                                <form>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    {% for field in form %}
                                     <div class="form-group">
-                                        <input type="text"  id="" name="name" required>
-                                        <label>User Name</label>
+                                        {{field}}
+                                        {{field.label_tag}}
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" id="" name="password" required>
-                                        <label>password</label>
+                                    <!-- <div class="form-group">
+                                        <input type="password" id="lozinka" name="password" required>
+                                        <label>Lozinka</label>
+                                    </div> -->
+                                    {% endfor %}
+                                    <div class="myform-button">
+                                        <button type="submit" class="myform-btn">LogIn</button>
                                     </div>
                                     <div class="myform-button">
-                                        <button class="myform-btn">Login</button>
+                                        <a class="ml-3" href="{% url 'Instrumenti:register_user' %}">Nemate nalog? Registrujete se!</a>
                                     </div>
                                 </form>
                             </div>

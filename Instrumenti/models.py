@@ -15,7 +15,7 @@ class Instrument(models.Model):
 class Nalozi(models.Model):
     ime = models.CharField(max_length=30)
     prezime = models.CharField(max_length=30)
-    email = models.CharField(max_length=30)
+    email = models.CharField(max_length=30, unique=True)
     brtel = models.CharField(max_length=30)
     lozinka = models.CharField(max_length=30)
 
