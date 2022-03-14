@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import TemplateView,ListView,CreateView,UpdateView,DeleteView
 from .models import Instrument,Nalozi
@@ -10,9 +10,12 @@ def HomeView(request):
         form = LogIn(request.POST)
 
         if form.is_valid():
-            print(form.cleaned_data['email'])
-            print(form.cleaned_data['lozinka'])
-            form = LogIn()
+            try:
+                Nalozi.objects.get(email = form.cleaned_data['email'], lozinka = form.cleaned_data['lozinka'])
+                return redirect('oglasi/')
+
+            except:
+                form = LogIn()
 
     else:
         form = LogIn()
