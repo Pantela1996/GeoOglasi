@@ -17,7 +17,8 @@ class InstrumentForm(forms.ModelForm):
 
 class LogIn(forms.Form):
     email = forms.CharField(label = 'Email', max_length=30)
-    lozinka = forms.CharField(label = 'Lozinka', max_length=30)
+    lozinka = forms.CharField(label = 'Lozinka', max_length=30, widget=forms.TextInput(attrs={'type': 'password'}))
+
 
 class RegisterForm(forms.ModelForm):
     class Meta:
@@ -29,5 +30,5 @@ class RegisterForm(forms.ModelForm):
             'prezime': forms.TextInput(attrs={'class':'form-control'}),
             'email': forms.TextInput(attrs={'class':'form-control'}),
             'brtel': forms.TextInput(attrs={'class':'form-control'}),
-            'lozinka': forms.TextInput(attrs={'class':'form-control'})
+            'lozinka': forms.TextInput(attrs={'class':'form-control', 'type':'password'})
         }
