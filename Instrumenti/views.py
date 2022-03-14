@@ -1,8 +1,11 @@
-from django.shortcuts import render, redirect
+import pandas as pd
+from io import StringIO
+
+from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse, reverse_lazy
 from django.views.generic import TemplateView,ListView,CreateView,UpdateView,DeleteView
 from .models import Instrument,Nalozi
-from .forms import InstrumentForm,LogIn,RegisterForm
+from .forms import InstrumentForm,LogIn,RegisterForm,ExcelLoad
 
 # Create your views here.
 def HomeView(request):
@@ -50,3 +53,17 @@ class RegistrujKorisnika(CreateView):
     form_class = RegisterForm
     template_name = 'Instrumenti/nalozi_form.html'
     success_url = reverse_lazy('Instrumenti:home')
+
+def ExcelView(request):
+    df = pd.DataFrame()
+    df = df.to_html()
+    if request.method == 'POST':
+        uploaded_file = request.FILES['document'].read()
+        s=str(uploaded_file,'utf-8')
+        data = StringIO(s) 
+        df=pd.read_csv(data)
+        df = df.to_html()
+
+        return HttpResponse(df)
+
+    return render(request, 'Instrumenti/excel.html')

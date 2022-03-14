@@ -32,3 +32,6 @@ class RegisterForm(forms.ModelForm):
             'brtel': forms.TextInput(attrs={'class':'form-control'}),
             'lozinka': forms.TextInput(attrs={'class':'form-control', 'type':'password'})
         }
+
+class ExcelLoad(forms.Form):
+    file = forms.FileField()

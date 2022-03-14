@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HomeView,InstrumentiListView,DodajOglas,AzurirajOglas,ObrisiOglas,RegistrujKorisnika
+from .views import HomeView,InstrumentiListView,DodajOglas,AzurirajOglas,ObrisiOglas,RegistrujKorisnika,ExcelView
 
 app_name = 'Instrumenti'
 
@@ -9,5 +9,6 @@ urlpatterns = [
     path("dodaj_oglas/", DodajOglas.as_view(), name="dodaj_oglas"),
     path("update_instrument/<int:pk>",AzurirajOglas.as_view(), name = 'update_instrument'),
     path("delete_instrument/<int:pk>",ObrisiOglas.as_view(), name = 'delete_instrument'),
-    path("registruj_korisnika",RegistrujKorisnika.as_view(), name = 'register_user')
+    path("registruj_korisnika/",RegistrujKorisnika.as_view(), name = 'register_user'),
+    path("excel/",ExcelView, name = 'excel')
 ]
