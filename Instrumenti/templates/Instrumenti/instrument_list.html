@@ -28,7 +28,9 @@
                 <img class="card-img-top" src="{% static 'Instrumenti/TopograferLite.jpg' %}" alt="Card image cap">
                 <div class="card-body">
                 <h5 class="card-title">{{instrument.marka}} {{instrument.model}}</h5>
-                <p class="card-text">{{instrument.opis}}.</p>
+                <p class="card-text">{{instrument.opis}}</p>
+                <p class="card-text">{{instrument.mesto}}</p>
+                <p class="card-text">{{instrument.kontakt}}</p>
                 <h1 class="card-title pricing-card-title">${{instrument.cena}}<small class="text-muted fw-light"></small></h1>
                 <a href="/Instrumenti/update_instrument/{{instrument.id}}" class="btn btn-primary">Ažuriraj oglas</a>
                 <a href="/Instrumenti/delete_instrument/{{instrument.id}}" class="btn btn-danger">Obriši oglas</a>
